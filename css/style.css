@@ -1,0 +1,434 @@
+@charset "UTF-8";
+/* Reset and base styles  */
+* {
+  padding: 0px;
+  margin: 0px;
+  border: none;
+}
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+/* Links */
+a, a:link, a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+/* Common */
+aside, nav, footer, header, section, main {
+  display: block;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+ul, ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+img, svg {
+  max-width: 100%;
+  height: auto;
+}
+
+address {
+  font-style: normal;
+}
+
+/* Form */
+input, textarea, button, select {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  background-color: transparent;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button, input[type=submit] {
+  display: inline-block;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  background-color: transparent;
+  background: none;
+  cursor: pointer;
+}
+
+input:focus, input:active,
+button:focus, button:active {
+  outline: none;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+label {
+  cursor: pointer;
+}
+
+legend {
+  display: block;
+}
+
+@font-face {
+  font-family: "TT Norms";
+  src: url("../fonts/TTNorms-Italic.eot");
+  src: local("../fonts/TT Norms Italic"), local("TTNorms-Italic"), url("../fonts/TTNorms-Italic.eot?#iefix") format("embedded-opentype"), url("../fonts/TTNorms-Italic.woff2") format("woff2"), url("../fonts/TTNorms-Italic.woff") format("woff"), url("../fonts/TTNorms-Italic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: italic;
+}
+@font-face {
+  font-family: "TT Norms";
+  src: url("../fonts/TTNorms-MediumItalic.eot");
+  src: local("../fonts/TT Norms Medium Italic"), local("TTNorms-MediumItalic"), url("../fonts/TTNorms-MediumItalic.eot?#iefix") format("embedded-opentype"), url("../fonts/TTNorms-MediumItalic.woff2") format("woff2"), url("../fonts/TTNorms-MediumItalic.woff") format("woff"), url("../fonts/TTNorms-MediumItalic.ttf") format("truetype");
+  font-weight: 500;
+  font-style: italic;
+}
+@font-face {
+  font-family: "TT Norms";
+  src: url("../fonts/TTNorms-Medium.eot");
+  src: local("../fonts/TT Norms Medium"), local("TTNorms-Medium"), url("../fonts/TTNorms-Medium.eot?#iefix") format("embedded-opentype"), url("../fonts/TTNorms-Medium.woff2") format("woff2"), url("../fonts/TTNorms-Medium.woff") format("woff"), url("../fonts/TTNorms-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "TT Norms";
+  src: url("../fonts/TTNorms-Regular.eot");
+  src: local("../fonts/TT Norms Regular"), local("TTNorms-Regular"), url("../fonts/TTNorms-Regular.eot?#iefix") format("embedded-opentype"), url("../fonts/TTNorms-Regular.woff2") format("woff2"), url("../fonts/TTNorms-Regular.woff") format("woff"), url("../fonts/TTNorms-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+:root {
+  --131313: #131313;
+  --739276: #739276;
+  --e0dccd: #e2d6a7;
+  --efefef: #efefef;
+  --383838: #333;
+  --font-family: "TT Norms", sans-serif;
+}
+
+* {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-style: normal;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: unset;
+  color: unset;
+}
+
+.none {
+  display: none !important;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1600px;
+  padding: 0 50px;
+  height: inherit;
+}
+
+.header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 15px;
+}
+.header__logo {
+  width: 203px;
+}
+.header__menu-wrapper {
+  background-color: #FFF;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 17px 30px;
+  border-radius: 3px;
+  gap: 20px;
+  width: 100%;
+}
+.header__menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 35px;
+}
+.header__menu-item {
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 154%;
+  text-transform: uppercase;
+  color: var(--383838);
+}
+.header__contacts-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.header__address {
+  max-width: 280px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 10px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-left: 20px;
+  border-left: 1px solid var(--efefef);
+}
+.header__address-text {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 143%;
+  color: var(--131313);
+}
+.header__сonnection {
+  padding-left: 20px;
+  border-left: 1px solid var(--efefef);
+}
+.header__phone-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 13px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 8px;
+}
+.header__phone-text {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 143%;
+  color: var(--131313);
+}
+.header__email-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 13px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.header__email-text {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 143%;
+  color: var(--131313);
+}
+
+/* Главная страница*/
+.main-first-window {
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5))), url("../img/main-first-bg.jpg");
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../img/main-first-bg.jpg");
+  height: 100vh;
+}
+.main-first-window__block {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: inherit;
+}
+.main-first-window__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 15px;
+}
+.main-first-window__labels {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 10px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 25px;
+}
+.main-first-window__label {
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 99px;
+  padding: 8px 20px;
+  width: 116px;
+  height: 34px;
+  -webkit-backdrop-filter: blur(50px);
+          backdrop-filter: blur(50px);
+  background: rgba(115, 146, 118, 0.5);
+}
+.main-first-window__label-text {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 146%;
+  letter-spacing: 0.1em;
+  text-align: center;
+  color: #fff;
+}
+.main-first-window__title {
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 64px;
+  color: #fff;
+  margin-bottom: 5px;
+}
+.main-first-window__description {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 24px;
+  color: #fff;
+  margin-bottom: 50px;
+}
+.main-first-window__slider-nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 20px;
+}
+.main-first-window__slider-numbers {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 15px;
+}
+.main-first-window__slider-current-number {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 32px;
+  text-align: center;
+  color: #b6b6b6;
+}
+.main-first-window__slider-numbers-dash {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 32px;
+  text-align: center;
+  color: #fff;
+}
+.main-first-window__slider-total-number {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 32px;
+  text-align: center;
+  color: #fff;
+}
+.main-first-window__booking-wrapper {
+  padding: 50px 30px;
+  width: 430px;
+  border-radius: 3px;
+  background-color: #FFF;
+}
+.main-first-window__booking-title {
+  font-family: var(--font-family);
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 83%;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--383838);
+  margin-bottom: 30px;
+}
+.main-first-window__date-wrapper {
+  width: 100%;
+  background: #f1f1f1;
+  border-radius: 99px;
+  height: 50px;
+  padding: 7px 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 11px;
+  margin-bottom: 15px;
+}
+.main-first-window__date-text-wrapper {
+  padding-left: 15px;
+  border-left: 1px solid #ccc;
+}
+.main-first-window__date-input-title {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 12px;
+  color: #a0a0a0;
+}
+.main-first-window__date-input-text {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 14px;
+  color: #1b1b1b;
+}
+.main-first-window__search-btn {
+  width: 100%;
+  padding: 17px 34px;
+  text-transform: uppercase;
+  text-align: center;
+  color: #fff;
+  background: var(--739276);
+  border-radius: 99px;
+  margin-top: 25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 4px;
+}/*# sourceMappingURL=style.css.map */
