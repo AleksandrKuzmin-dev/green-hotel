@@ -81,6 +81,27 @@ a {
     height: inherit;
 }
 
+.title-h2 {
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 64px;
+    color: var(--383838);
+}
+
+.title-button {
+    font-family: var(--font-family);
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 143%;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--739276);
+    padding: 15px 30px;
+    border: 1px solid var(--739276);
+    border-radius: 99px;
+}
+
 
 
 .header {
@@ -290,6 +311,7 @@ a {
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
+    margin-bottom: 120px;
 
     &__block {
        display: flex;
@@ -448,6 +470,191 @@ a {
     }
 
 }
+
+
+.rooms {
+    margin-bottom: 120px;
+
+    &__title-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 46px;
+    }
+
+    &__title {
+    }
+
+
+    &__corpus-nav {
+        margin-bottom: 25px;
+        display: flex;
+        gap: 30px;
+        align-items: center;
+    }
+
+    &__corpus-nav-item {
+        padding: 13px 40px;
+        border-radius: 99px;
+        background: #d3d3d3;
+
+        font-family: var(--font-family);
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 106%;
+        text-align: center;
+        color: var(--383838);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        &_active {
+            color: #fff;
+            background: var(--739276);
+        }
+    }
+
+    &__corpus-nav-item_active &__corpus-nav-icon g rect{
+       fill: #FFF;
+    }
+
+    &__wrapper {
+        display: flex;
+        gap: 60px;
+    }
+
+    &__nav {
+        display: flex;
+        flex-direction: column;
+        background-color: var(--739276);
+        border-radius: 3px;
+        overflow: hidden;
+        box-shadow: 0 10px 20px 0 rgba(104, 104, 104, 0.2);
+        width: 29vw;
+        min-width: 310px;
+    }
+
+    &__nav-item {
+        
+        background-color: var(--739276);
+        padding: 0 20px;
+        transition: background-color .5s ease;
+       
+        &_active {
+            background-color: #5B7E5E;
+        }
+    }
+
+    &__nav-item-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid #5b765e;
+        padding: 20px 0;
+    }
+
+    &__nav-item:last-child &__nav-item-wrapper{
+        border-bottom: unset;
+    }
+
+    &__nav-item_active &__nav-item-wrapper {
+        border-bottom: unset;
+    }
+
+    &__nav-item-text-wrapper {
+        text-align: left;
+    }
+
+    &__nav-item-name {
+        font-family: var(--font-family);
+        font-weight: 500;
+        font-size: 21px;
+        color: #fff;
+        margin-bottom: 8px;
+    }
+
+    &__nav-item-price {
+        font-family: var(--font-family);
+        font-weight: 400;
+        font-size: 16px;
+        color: #fff;
+    }
+
+    &__nav-item-price-value {
+        font-weight: 800;
+    }
+
+    &__nav-item-arrow {
+        width: 0;
+        opacity: 0;
+        transition: opacity .5s ease;
+    }
+    &__nav-item_active &__nav-item-arrow {
+        width: unset;
+        opacity: 1;
+    }
+
+    &__room-img-wrapper {
+        height: 100%;
+        position: relative;
+    }
+
+    &__room-img {
+        height: 100%;
+        object-fit: cover;
+        border-radius: 3px;
+        object-position: center;
+    }
+
+    &__room-nav {
+        position: absolute;
+        bottom: 0px;
+        display:  flex;
+        justify-content: space-between;
+        width: 100%;
+        padding: 50px 40px;
+        align-items: center;
+        gap: 30px;
+        flex-wrap: wrap-reverse;
+    }
+
+    &__room-preview {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        flex-wrap: wrap;
+        
+    }
+
+    &__room-preview-item {
+        border-radius: 100%;
+        width: 50px;
+        height: 50px;
+        background-image: url('../img/rooms__single-1.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+
+        &_active {
+            border: 1px solid #FFF;
+        }
+    }
+
+    &__room-nav-btn {
+        border-radius: 99px;
+        padding: 10px 25px;
+        width: 310px;
+        height: 44px;
+        background-color: #FFF;
+
+        font-family: var(--font-family);
+        font-weight: 400;
+        font-size: 14px;
+        text-transform: uppercase;
+        text-align: center;
+        color: var(--131313);
+    }
+}
+
 
 
 /* Медиа запросы */
