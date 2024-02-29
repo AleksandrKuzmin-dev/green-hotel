@@ -219,9 +219,6 @@ a {
     gap: 30px;
     overflow-y: auto;
 
-    &__logo {
-    }
-
     &__menu {
         display: flex;
         flex-direction: column;
@@ -311,6 +308,100 @@ a {
         right: 30px;
     }
 }
+
+
+
+    .footer {
+
+		padding: 30px 0;
+        background: var(--739276);
+        &__wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 40px;
+        }
+
+		&__logo-wrapper {
+            display: flex;
+            align-items: flex-start;
+            
+		}
+
+        &__logo-block {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+		&__logo {
+            margin-bottom: 23px;
+		}
+
+		&__copy {
+            font-family: var(--font-family);
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 143%;
+            text-align: center;
+            color: var(--efefef);
+		}
+
+        &__block-title {
+            font-family: var(--font-family);
+            font-weight: 500;
+            font-size: 18px;
+            text-transform: uppercase;
+            color: var(--efefef);
+            margin-bottom: 20px;
+        }
+
+		&__info-links {
+            display: flex;
+            align-items: flex-start;
+            flex-direction: column;
+            gap: 7px;
+		}
+
+		&__info-link {
+            font-family: var(--font-family);
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 143%;
+            color: var(--efefef);
+		}
+
+		&__social-items {
+            display: flex;
+            gap: 20px;
+		}
+
+		&__contacts-items {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+		}
+        &__contacts-phone-1 {
+            margin-right: 10px;
+        }
+
+		&__contacts-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+		}
+
+		&__contacts-text {
+            font-family: var(--font-family);
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 143%;
+            color: #fff;
+            white-space: nowrap;
+		}
+}
+
+
+
 
 
 /* Главная страница*/
@@ -490,10 +581,6 @@ a {
         justify-content: space-between;
         margin-bottom: 46px;
     }
-
-    &__title {
-    }
-
 
     &__corpus-nav {
         margin-bottom: 25px;
@@ -711,9 +798,6 @@ a {
         border-right: unset;
     }
 
-    &__item-img {
-    }
-
     &__item-name {
         font-family: var(--font-family);
         font-weight: 500;
@@ -759,13 +843,6 @@ a {
         margin-bottom: 50px;
     }
 
-    &__title {
-
-    }
-
-    &__title-button {
-    }
-
     &__nav {
         display: flex;
         gap: 20px;
@@ -800,9 +877,6 @@ a {
         gap: 20px;
     }
 
-    &__img-card {
-    }
-
     &__img {
         object-position: center;
         object-fit: contain;
@@ -821,25 +895,149 @@ a {
         justify-content: space-between;
     }
 
-    &__title {
-    }
-
-    &__title-button {
-    }
-
     &__img-cards {
         display: grid;
         gap: 20px;
         grid-template-columns: 1fr 1fr;
     }
 
-    &__img-card {
-    }
-
     &__img {
         object-position: center;
         object-fit: contain;
         width: 100%;
+    }
+}
+
+.advantages {
+    padding: 70px 0;
+    background: var(--739276);
+    margin-bottom: 120px;
+
+    &__title {
+        margin-bottom: 30px;
+    }
+
+    &__cards {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 40px;
+    }
+
+    &__card {
+        text-align: center;
+        border-right: 1px solid #647d67;;
+    }
+    &__card:last-child {
+        border-right: unset;
+    }
+
+    &__card-icon {
+        margin-bottom: 8px;
+
+    }
+
+    &__card-name {
+        font-family: var(--font-family);
+        font-weight: 500;
+        font-size: 17px;
+        text-align: center;
+        color: #fff;
+    }
+}
+
+.guarantee {
+    margin-bottom: 120px;
+
+    &__title {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    &__title-green {
+        color: var(--739276);
+        font-family: var(--font-family);
+        font-weight: 700;
+        text-align: center;
+    }
+
+    &__descr {
+        font-family: var(--font-family);
+        font-weight: 400;
+        font-size: 24px;
+        text-align: center;
+        color: var(--383838);
+        margin-bottom: 55px;
+    }
+
+    &__wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 70px;
+        align-items: center;
+    }
+
+    &__img-block {
+        height: 100%;
+        border-radius: 3px;
+    }
+
+    &__img {
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        border-radius: 3px;
+    }
+
+    &__cards {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        margin-bottom: 55px;
+    }
+
+    &__card {
+        display: flex;
+        gap: 15px;
+        align-items: center;
+    }
+
+    &__card-number {
+        font-family: var(--font-family);
+        font-weight: 500;
+        font-size: 72px;
+        text-transform: uppercase;
+        color: var(--739276);
+    }
+
+    &__text {
+        font-family: var(--font-family);
+        font-weight: 500;
+        font-size: 18px;
+        color: var(--383838);
+    }
+
+    &__text-green {
+        font-family: var(--font-family);
+        font-weight: 500;
+        font-size: 18px;
+        color: var(--739276);
+    }
+
+    &__btn {
+        display: block;
+        margin: 0 auto;
+        border-radius: 99px;
+        padding: 14px 50px;
+        width: 100%;
+        background-color: var(--739276);
+
+        font-family: var(--font-family);
+        font-weight: 500;
+        font-size: 14px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        text-align: center;
+        color: #fff;
     }
 }
 
@@ -862,9 +1060,6 @@ a {
             display: block;
 		}
 
-		&__mobile-burger-icon {
-		}
-
         &__menu-wrapper{
             justify-content: space-between;
         }
@@ -885,6 +1080,18 @@ a {
 
         &__item:nth-child(3) &__item-wrapper {
             border-right: unset;
+        }
+    }
+}
+
+@media (max-width: 1400px) {
+    .guarantee {
+        &__wrapper {
+            gap: 40px;
+            min-height: 380px;
+        }
+        &__cards {
+            gap: 30px;
         }
     }
 }
@@ -914,6 +1121,31 @@ a {
         &__mobile-burger-icon path {
             fill: white;
 		}
+    }
+
+    .footer {
+        &__wrapper {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        &__logo-wrapper {
+            align-items: center;
+            justify-content: center;
+        }
+
+        &__contacts-wrapper {
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        &__social-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+        }
     }
 
     .main-first-window{
@@ -956,6 +1188,28 @@ a {
         &__img-cards{
             grid-template-columns: 1fr 1fr 1fr;
         }
+    }
+
+    .advantages {
+        &__cards {
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+        &__card {
+            border-right: unset;
+        }
+    }
+
+    .guarantee {
+        &__wrapper {
+            grid-template-columns: 1fr;
+           
+        }
+
+        &__img {
+            width: 100%;
+        }
+
     }
 
 
@@ -1036,7 +1290,8 @@ a {
     }
 }
 
-@media(max-width: 640px) {
+
+@media(max-width: 680px) {
     .container {
         padding: 0 15px;
     }
@@ -1045,6 +1300,34 @@ a {
         font-size: 36px;
     }
 
+    .footer {
+        &__wrapper {
+            grid-template-columns: 1fr;
+        }
+
+        &__info-wrapper {
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            flex-direction: column;
+        }
+        &__info-links {
+            justify-content: center;
+            align-items: center;
+        }
+        &__info-link {
+            text-align: center;
+        }
+
+        &__contacts-wrapper {
+            display: flex;
+            flex-direction: column;
+        }
+
+        &__contacts-text {
+            white-space: unset;
+        }
+    }
 
     .rooms {
 
@@ -1094,6 +1377,30 @@ a {
             flex-wrap: wrap;
         }
     }
+
+    .guarantee {
+
+        &__cards-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        &__cards {
+            grid-template-columns: 1fr;
+            width: max-content;
+        }
+      
+        &__card-number{
+            font-size: 60px;
+        }
+        &__text {
+            font-size: 16px;
+        }
+
+        &__img {
+            min-height: 250px;
+        }
+    }
 }
 
 @media(max-width: 480px) {
@@ -1123,10 +1430,6 @@ a {
         }
         &__description {
             font-size: 20px;
-        }
-
-        &__labels {
-            
         }
 
         &__label {
