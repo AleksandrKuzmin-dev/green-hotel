@@ -1,0 +1,96 @@
+/* 
+    bgSelector - селектор класса, в котором находится фоновое изображение первого экрана
+    slideSelector - селектор отдельных слайдов
+    imgSelector - селектор изображения, которые находятся внутри сайтов (подставляются в фоновое изображение при смене слайда)
+*/
+    function setFullPageSlider(bgSelector, slideSelector, imgSelector, prevBtnSelector, nextBtnSelector, activeBtnSelector, currentValueSelector, totalValueSelector) {
+        const bgBlock = document.querySelector(bgSelector),
+                slides = document.querySelectorAll(slideSelector),
+                prevBtn = document.querySelector(prevBtnSelector),
+                nextBtn = document.querySelector(nextBtnSelector),
+                currentValue = document.querySelector(currentValueSelector),
+                totalValue = document.querySelector(totalValueSelector);
+
+        const quantitySlides = slides.length;
+        let currentSlide = 0;
+        let currentBg = 0;
+        let bg;
+
+        const addZeroToNumber = (num) => {
+            if (num > 9) return num;
+
+            return `0${num}`
+        }
+
+        const changeBg = (imgSrc) => {
+            bg[currentBg].classList.add('none');
+            currentBg = currentBg ? 0 : 1;
+            bg[currentBg].src = imgSrc;
+            bg[currentBg].classList.remove('none');
+        
+        }
+
+        const setActiveBtn = (slideNumber) => {
+            const activeSelector = activeBtnSelector.replace(/[.]/g, '');
+            if (slideNumber === quantitySlides - 1) {
+                prevBtn.classList.add(activeSelector);
+                nextBtn.classList.remove(activeSelector)
+            } else if (slideNumber === 0){
+                prevBtn.classList.remove(activeSelector);
+                nextBtn.classList.add(activeSelector)
+            } else {
+                prevBtn.classList.add(activeSelector);
+                nextBtn.classList.add(activeSelector)
+            }
+        }
+
+        const setSlide = (slideNumber) => {
+
+            if (slideNumber > quantitySlides - 1) {
+                currentSlide = slideNumber - 1;
+            } else if (slideNumber < 0) {
+                currentSlide = 0;
+                
+            } else {
+                currentSlide = slideNumber;
+            }
+
+            setActiveBtn(currentSlide);
+
+            slides.forEach((item, i) => {
+                item.classList.add('none');
+
+                if (i === currentSlide) {
+                    item.classList.add('fadeInFromNone');
+                    const imgSrc = item.querySelector(imgSelector).src;
+                    item.classList.remove('none');
+                    changeBg(imgSrc);
+                } 
+            })
+
+            currentValue.textContent = addZeroToNumber(currentSlide + 1);
+        }
+
+        const initializationSlider = () => {
+            totalValue.textContent = addZeroToNumber(quantitySlides);
+
+            const duplicateBgBlock = bgBlock.cloneNode();
+            const comment = document.createComment("Это технический блок, созданный автоматически и необходимый для работы слайдера");
+
+            duplicateBgBlock.classList.add('none');
+            duplicateBgBlock.append(comment);
+            bgBlock.after(duplicateBgBlock);
+
+            bg = document.querySelectorAll(bgSelector);
+
+            prevBtn.addEventListener('click', () => {
+                setSlide(currentSlide - 1);
+            })
+
+            nextBtn.addEventListener('click', () => {
+                setSlide(currentSlide + 1);     
+            })
+        }
+
+        initializationSlider();
+    } 

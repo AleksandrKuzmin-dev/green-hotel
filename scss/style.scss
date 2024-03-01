@@ -48,6 +48,22 @@
     font-style: normal;
 }
 
+
+/* Анимации */
+@keyframes fadeInFromNone {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes zoom {
+    0% { transform: scale(1.1)}
+    100% { transform: scale(1)}
+}
+
+  .fadeInFromNone {
+    animation: fadeInFromNone .8s ease-in-out;
+  }
+
 :root {
 	--131313: #131313;
 	--739276: #739276;
@@ -407,17 +423,44 @@ a {
 /* Главная страница*/
 
 .main-first-window {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../img/main-first-bg.jpg');
-    background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
     height: 100vh;
     margin-bottom: 120px;
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+        z-index: 1;
+        pointer-events: none;
+      }
+
+      &__bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        animation: zoom .8s ease-in-out;
+    }
 
     &__block {
        display: flex;
        flex-direction: column;
        height: inherit;
+       position: relative;
+       z-index: 2;
     }
 
     &__wrapper {
@@ -441,8 +484,8 @@ a {
         padding: 8px 20px;
         width: 116px;
         height: 34px;
-        backdrop-filter: blur(50px);
-        background: rgba(115, 146, 118, 0.5);
+    /*     backdrop-filter: blur(50px); */
+        background: rgba(115, 146, 118, 0.7);
     }
 
     &__label-text {
@@ -503,6 +546,22 @@ a {
         font-size: 32px;
         text-align: center;
         color: #fff;
+    }
+
+    &__arrow-right {
+        pointer-events: none;
+    }
+
+    &__arrow-left {
+        pointer-events: none;
+    }
+    
+    &__arrow-active {
+        pointer-events: all;
+    }
+
+    &__arrow-active svg path{
+        stroke: white !important;
     }
 
     &__booking-wrapper {
@@ -1433,7 +1492,7 @@ a {
         }
 
         &__label {
-            width: 90px;
+            width: 98px;
         }
 
         &__label-text {
