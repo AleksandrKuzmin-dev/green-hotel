@@ -154,8 +154,8 @@ legend {
   }
 }
 .fadeInFromNone {
-  -webkit-animation: fadeInFromNone 0.8s ease-in-out;
-          animation: fadeInFromNone 0.8s ease-in-out;
+  -webkit-animation: fadeInFromNone 1s ease-in-out;
+          animation: fadeInFromNone 1s ease-in-out;
 }
 
 :root {
@@ -817,7 +817,7 @@ a {
 .rooms__corpus-nav-item {
   padding: 13px 40px;
   border-radius: 99px;
-  background: #d3d3d3;
+  background-color: #d3d3d3;
   font-family: var(--font-family);
   font-weight: 400;
   font-size: 18px;
@@ -831,10 +831,12 @@ a {
       -ms-flex-align: center;
           align-items: center;
   gap: 10px;
+  -webkit-transition: background-color 0.8s ease;
+  transition: background-color 0.8s ease;
 }
 .rooms__corpus-nav-item_active {
   color: #fff;
-  background: var(--739276);
+  background-color: var(--739276);
 }
 .rooms__corpus-nav-item_active .rooms__corpus-nav-icon g rect {
   fill: #FFF;
@@ -858,14 +860,19 @@ a {
   overflow: hidden;
   -webkit-box-shadow: 0 10px 20px 0 rgba(104, 104, 104, 0.2);
           box-shadow: 0 10px 20px 0 rgba(104, 104, 104, 0.2);
-  width: 29vw;
+  width: 25vw;
   min-width: 310px;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
 }
 .rooms__nav-item {
   background-color: var(--739276);
   padding: 0 20px;
   -webkit-transition: background-color 0.5s ease;
   transition: background-color 0.5s ease;
+  height: 100px;
+  -webkit-transition: all 0.8s ease;
+  transition: all 0.8s ease;
 }
 .rooms__nav-item_active {
   background-color: #5B7E5E;
@@ -880,14 +887,17 @@ a {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  border-bottom: 1px solid #5b765e;
+  border-top: 1px solid #5b765e;
   padding: 20px 0;
 }
-.rooms__nav-item:last-child .rooms__nav-item-wrapper {
-  border-bottom: unset;
+.rooms__nav-item:first-child .rooms__nav-item-wrapper {
+  border-top: unset;
 }
 .rooms__nav-item_active .rooms__nav-item-wrapper {
-  border-bottom: unset;
+  border-top: unset;
+}
+.rooms__nav-item_active + .rooms__nav-item .rooms__nav-item-wrapper {
+  border-top: unset;
 }
 .rooms__nav-item-text-wrapper {
   text-align: left;
@@ -918,17 +928,29 @@ a {
   width: unset;
   opacity: 1;
 }
+.rooms__room-content-block {
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
 .rooms__room-img-wrapper {
   height: 100%;
   position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-transition: -webkit-transform 1s ease;
+  transition: -webkit-transform 1s ease;
+  transition: transform 1s ease;
+  transition: transform 1s ease, -webkit-transform 1s ease;
 }
 .rooms__room-img {
-  height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 3px;
   -o-object-position: center;
      object-position: center;
+  width: 1080px;
 }
 .rooms__room-nav {
   position: absolute;
@@ -1478,6 +1500,9 @@ a {
   }
   .rooms__title-button {
     padding: 10px 20px;
+  }
+  .rooms__nav-item {
+    height: unset;
   }
   .gallery-restaurant__img-cards {
     grid-template-columns: 1fr 1fr;
