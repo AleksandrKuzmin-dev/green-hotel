@@ -1,9 +1,54 @@
-/* 
+function setMobileMenu(triggerSelector, modalSelector, closeSelector){
+    const trigger = document.querySelector(triggerSelector),
+          modal = document.querySelector(modalSelector),
+          close = document.querySelector(closeSelector),
+          body = document.querySelector('body');
+    
+    let isOpen = false;
+
+    const disabledBtn = (value) => {
+        close.disabled = value;
+        trigger.disabled = value;
+    }
+
+    const openModal = () => {
+        disabledBtn(true);
+        body.style.overflow = 'hidden';
+        trigger.disabled = true;
+        modal.classList.add('animOpenMobileMenu');
+        modal.classList.remove('none');
+    }
+
+    const closeModal = () => {
+        disabledBtn(true);
+        modal.classList.remove('animOpenMobileMenu');
+        modal.classList.add('animCloseMobileMenu');
+        body.style.overflow = 'unset';
+    }
+
+    modal.addEventListener('animationend', () => {
+        if (isOpen) {
+            modal.classList.add('none');
+            modal.classList.remove('animCloseMobileMenu');
+            isOpen = false;
+        } else {
+            isOpen = true;
+        }
+
+        disabledBtn(false);
+    })
+
+    trigger.addEventListener('click', openModal);
+    close.addEventListener('click', closeModal);
+}
+
+function setFullPageSlider(bgSelector, slideSelector, imgSelector, prevBtnSelector, nextBtnSelector, activeBtnSelector, currentValueSelector, totalValueSelector) {
+    /* 
     bgSelector - селектор класса, в котором находится фоновое изображение первого экрана
     slideSelector - селектор отдельных слайдов
     imgSelector - селектор изображения, которые находятся внутри сайтов (подставляются в фоновое изображение при смене слайда)
 */
-function setFullPageSlider(bgSelector, slideSelector, imgSelector, prevBtnSelector, nextBtnSelector, activeBtnSelector, currentValueSelector, totalValueSelector) {
+
     const bgBlock = document.querySelector(bgSelector),
             slides = document.querySelectorAll(slideSelector),
             prevBtn = document.querySelector(prevBtnSelector),
@@ -95,7 +140,6 @@ function setFullPageSlider(bgSelector, slideSelector, imgSelector, prevBtnSelect
     initializationSlider();
 } 
 
-
 /* Переключение табов */
 function setTabs(tabsElements, activeTabSelector, contentElements) {
     let lastContent = contentElements[0];
@@ -158,7 +202,6 @@ function setRoomSlider(imgElements, previewParentElement, previewSelector, previ
     })
 }
 
-
 /* Динамическое навешивание табов и слайдера для раздела "Номерной фонд" */
 function setTabRooms(tabSelector, activeTabSelector, contentSelector) {
     const tabs = document.querySelectorAll(tabSelector),
@@ -184,7 +227,9 @@ function setTabRooms(tabSelector, activeTabSelector, contentSelector) {
    
 }
 
-setTabRooms('.rooms__corpus-nav-item', '.rooms__corpus-nav-item_active', '.rooms__wrapper');
+setMobileMenu('.header__mobile-burger', '.mobile-modal-menu', '.mobile-modal-menu__close');
+
+
 
 
 
