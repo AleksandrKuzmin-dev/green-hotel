@@ -61,6 +61,24 @@
     100% { transform: scale(1)}
 }
 
+@keyframes openMobileMenu {
+    0% { height: 0%}
+    100% { height: 100%}
+}
+
+@keyframes closeMobileMenu {
+    0% { height: 100%;}
+    100% { height: 0%;}
+}
+
+.animOpenMobileMenu {
+    animation: openMobileMenu 1s ease-in-out;
+}
+
+.animCloseMobileMenu {
+    animation: closeMobileMenu 1s ease-in-out;
+}
+
   .fadeInFromNone {
     animation: fadeInFromNone 1s ease-in-out;
   }  
@@ -798,7 +816,7 @@ a {
         align-items: center;
         gap: 15px;
         flex-wrap: wrap;
-        
+        transition: all .8s ease;
     }
 
     &__room-preview-item {

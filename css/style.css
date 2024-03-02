@@ -153,6 +153,48 @@ legend {
             transform: scale(1);
   }
 }
+@-webkit-keyframes openMobileMenu {
+  0% {
+    height: 0%;
+  }
+  100% {
+    height: 100%;
+  }
+}
+@keyframes openMobileMenu {
+  0% {
+    height: 0%;
+  }
+  100% {
+    height: 100%;
+  }
+}
+@-webkit-keyframes closeMobileMenu {
+  0% {
+    height: 100%;
+  }
+  100% {
+    height: 0%;
+  }
+}
+@keyframes closeMobileMenu {
+  0% {
+    height: 100%;
+  }
+  100% {
+    height: 0%;
+  }
+}
+.animOpenMobileMenu {
+  -webkit-animation: openMobileMenu 1s ease-in-out;
+          animation: openMobileMenu 1s ease-in-out;
+}
+
+.animCloseMobileMenu {
+  -webkit-animation: closeMobileMenu 1s ease-in-out;
+          animation: closeMobileMenu 1s ease-in-out;
+}
+
 .fadeInFromNone {
   -webkit-animation: fadeInFromNone 1s ease-in-out;
           animation: fadeInFromNone 1s ease-in-out;
@@ -980,6 +1022,8 @@ a {
   gap: 15px;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  -webkit-transition: all 0.8s ease;
+  transition: all 0.8s ease;
 }
 .rooms__room-preview-item {
   border-radius: 100%;

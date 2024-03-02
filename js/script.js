@@ -95,6 +95,8 @@ function setFullPageSlider(bgSelector, slideSelector, imgSelector, prevBtnSelect
     initializationSlider();
 } 
 
+
+/* Переключение табов */
 function setTabs(tabsElements, activeTabSelector, contentElements) {
     let lastContent = contentElements[0];
     let lastTab = tabsElements[0];
@@ -115,8 +117,49 @@ function setTabs(tabsElements, activeTabSelector, contentElements) {
     })
 }
 
+/* Слайдер комнаты в "Номерной фонд" + динамическое создание превью в навигации*/
+function setRoomSlider(imgElements, previewParentElement, previewSelector, previewActiveSelector){
+
+    const createPreview = () => {
+        imgElements.forEach((item, index) => {
+            const previewEl = document.createElement('button');
+            const imgSrc = item.src;
+
+            previewEl.style.backgroundImage = `url(${imgSrc})`;
+            previewEl.classList.add(previewSelector.replace(/[.]/g, ''));
+
+            if (index === 0) {
+                previewEl.classList.add(previewActiveSelector.replace(/[.]/g, ''));
+            }
+            previewParentElement.append(previewEl);
+        })
+    }
+
+    createPreview();
+
+    const imgWrapper = imgElements[0].parentNode;
+    const previewElements = previewParentElement.querySelectorAll(previewSelector);
+    let lastActivePreview = previewElements[0];
+
+    const setNextSlide = (numSlide) => {
+        const widthStep = imgElements[numSlide].width;
+
+        lastActivePreview.classList.remove(previewActiveSelector.replace(/[.]/g, ''))
+        previewElements[numSlide].classList.add(previewActiveSelector.replace(/[.]/g, ''));
+
+        imgWrapper.style.transform = `translate(-${numSlide * widthStep}px)`;
+        lastActivePreview = previewElements[numSlide];
+    }
+
+    previewElements.forEach((item, index) => {
+        item.addEventListener('click', () => {
+            setNextSlide(index);
+        })
+    })
+}
 
 
+/* Динамическое навешивание табов и слайдера для раздела "Номерной фонд" */
 function setTabRooms(tabSelector, activeTabSelector, contentSelector) {
     const tabs = document.querySelectorAll(tabSelector),
           content = document.querySelectorAll(contentSelector);
@@ -128,13 +171,14 @@ function setTabRooms(tabSelector, activeTabSelector, contentSelector) {
     content.forEach((corpus) => {
         const roomTabs = corpus.querySelectorAll('.rooms__nav-item');
         const roomTabActiveSelector = '.rooms__nav-item_active';
-        const roomContent = corpus.querySelectorAll('.rooms__room-content');
-        setTabs(roomTabs, roomTabActiveSelector, roomContent);
+        const roomsContent = corpus.querySelectorAll('.rooms__room-content');
+        setTabs(roomTabs, roomTabActiveSelector, roomsContent);
 
-        roomContent.forEach(item => {
-            const images = item.querySelectorAll('.rooms__room-img');
-            const previewBlock = item.querySelectorAll('.rooms__room-preview');
-            /* Здесь будет вызов функции слайдера */
+        roomsContent.forEach(room => {
+            const images = room.querySelectorAll('.rooms__room-img');
+            const previewBlock = room.querySelector('.rooms__room-preview');
+            
+            setRoomSlider(images, previewBlock, '.rooms__room-preview-item', '.rooms__room-preview-item_active');
         })
     })
    
