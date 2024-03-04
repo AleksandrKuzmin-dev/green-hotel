@@ -224,6 +224,10 @@ a {
   color: unset;
 }
 
+body {
+  background-color: #F2F2F2;
+}
+
 .none {
   display: none !important;
 }
@@ -1817,6 +1821,96 @@ a {
   color: var(--739276);
 }
 
+/* Страница "Контакты" */
+.contacts-page-bg {
+  background: var(--739276);
+}
+
+.contacts-page {
+  margin-bottom: 75px;
+}
+.contacts-page__title {
+  margin-bottom: 30px;
+  color: #fff;
+}
+.contacts-page__devider-wave {
+  width: 100%;
+  background-repeat: no-repeat;
+  background-image: url("../img/contacts-wave-icon.svg");
+  height: 10px;
+  margin-bottom: 30px;
+}
+.contacts-page__contacts {
+  max-width: 1190px;
+}
+.contacts-page__cards {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 33px;
+}
+.contacts-page__card-title-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 5px;
+  margin-bottom: 13px;
+}
+.contacts-page__card-icon {
+  height: 22px;
+  width: 22px;
+}
+.contacts-page__card-title {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  color: #fff;
+}
+.contacts-page__card-text {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 18px;
+  color: #fff;
+}
+.contacts-page__card-text_left {
+  margin-right: 16px;
+}
+.contacts-page__social-cards {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 20px;
+}
+.contacts-page__social-card-icon {
+  height: 40px;
+  width: 40px;
+}
+
+.contacts-map {
+  margin-bottom: 125px;
+  margin-top: -25px;
+}
+.contacts-map__wrapper {
+  border-radius: 25px 25px 3px 3px;
+  overflow: hidden;
+  -webkit-box-shadow: 0px 10px 20px rgba(104, 104, 104, 0.2);
+          box-shadow: 0px 10px 20px rgba(104, 104, 104, 0.2);
+  margin-bottom: 30px;
+}
+
 /* Медиа запросы */
 @media (max-width: 1600px) {
   .header__menu {
@@ -1999,6 +2093,13 @@ a {
   .section-page__img {
     width: 100%;
     max-height: 500px;
+  }
+  .contacts-page__cards {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 40px;
   }
 }
 @media (max-width: 960px) {
@@ -2270,6 +2371,9 @@ a {
   }
   .rooms-page {
     height: 600px;
+  }
+  .contacts-map__wrapper {
+    height: 400px;
   }
 }
 @media (max-width: 389px) {

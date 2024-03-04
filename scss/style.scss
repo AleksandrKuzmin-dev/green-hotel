@@ -106,6 +106,10 @@ a {
     color: unset;
 }
 
+body {
+    background-color: #F2F2F2;
+}
+
 .none {
     display: none !important;
 }
@@ -1623,6 +1627,96 @@ a {
     }
 }
 
+/* Страница "Контакты" */
+.contacts-page-bg {
+    background: var(--739276);
+}
+
+.contacts-page {
+    margin-bottom: 75px;
+    
+    &__title {
+        margin-bottom: 30px;
+        color: #fff;
+    }
+
+    &__devider-wave {
+        width: 100%;
+        background-repeat: no-repeat;
+        background-image: url('../img/contacts-wave-icon.svg');
+        height: 10px;
+        margin-bottom: 30px;
+    }
+
+    &__contacts {
+        max-width: 1190px;
+    }
+
+    &__cards {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 40px;
+        margin-bottom: 33px;
+    }
+
+    &__card-title-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        margin-bottom: 13px;
+    }
+
+    &__card-icon {
+        height: 22px;
+        width: 22px;
+
+    }
+
+    &__card-title {
+        font-family: var(--font-family);
+        font-weight: 400;
+        font-size: 16px;
+        color: #fff;
+    }
+
+    &__card-text {
+        font-family: var(--font-family);
+        font-weight: 500;
+        font-size: 18px;
+        color: #fff;
+
+        &_left {
+            margin-right: 16px;
+        }
+    }
+
+    &__social-cards {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    &__social-card-icon {
+        height: 40px;
+        width: 40px;
+    }
+}
+
+.contacts-map {
+    margin-bottom: 125px;
+    margin-top: -25px;
+   
+
+    &__wrapper {
+        border-radius: 25px 25px 3px 3px;
+        overflow: hidden;
+        box-shadow: 0px 10px 20px rgba(104, 104, 104, 0.2);
+        margin-bottom: 30px;
+    }
+}
+
+
 
 
 
@@ -1846,6 +1940,13 @@ a {
         &__img {
             width: 100%;
             max-height: 500px;
+        }
+    }
+
+    .contacts-page {
+        &__cards {
+            flex-direction: column;
+            gap: 40px;
         }
     }
 
@@ -2186,6 +2287,11 @@ a {
         height: 600px;
     }
 
+    .contacts-map {
+        &__wrapper {
+            height: 400px;
+        }
+    }
     
 }
 
