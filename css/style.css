@@ -1507,7 +1507,7 @@ a {
   height: -moz-max-content;
   height: max-content;
   width: 20vw;
-  max-width: 310px;
+  max-width: 400px;
 }
 .rooms-card .rooms__room-content-block {
   height: 470px;
@@ -1677,6 +1677,78 @@ a {
   color: var(--739276);
 }
 
+/* Страница "Ресторан" */
+.restaurant-page {
+  margin-bottom: 100px;
+}
+.restaurant-page__title {
+  margin-bottom: 50px;
+}
+.restaurant-page__wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 70px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  height: 100%;
+}
+.restaurant-page__img-wrapper {
+  height: 100%;
+}
+.restaurant-page__img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+.restaurant-page__text-block {
+  font-family: var(--font-family);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 150%;
+  color: var(--739276);
+  margin-bottom: 30px;
+}
+.restaurant-page__text-block-green {
+  font-weight: 400;
+  color: var(--131313);
+}
+.restaurant-page__cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+.restaurant-page__card {
+  padding: 15px 15px 10px 15px;
+  border-radius: 3px;
+  background: #e3e3e3;
+}
+.restaurant-page__card-img {
+  width: 54px;
+  height: 54px;
+  margin-bottom: 5px;
+}
+.restaurant-page__card-title {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 144%;
+  color: var(--383838);
+  margin-bottom: 5px;
+}
+.restaurant-page__card-text {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 137%;
+  color: var(--383838);
+}
+
 /* Медиа запросы */
 @media (max-width: 1600px) {
   .header__menu {
@@ -1844,6 +1916,13 @@ a {
   }
   .rooms-card .rooms__nav-item-wrapper {
     border-top: unset;
+  }
+  .restaurant-page__wrapper {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .restaurant-page__img {
+    max-height: 500px;
   }
 }
 @media (max-width: 960px) {
@@ -2060,6 +2139,9 @@ a {
             flex-direction: column;
     text-align: center;
     gap: 15px;
+  }
+  .restaurant-page__cards {
+    grid-template-columns: 1fr;
   }
 }
 @media (max-width: 480px) {

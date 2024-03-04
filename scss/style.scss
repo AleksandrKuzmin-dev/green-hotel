@@ -1298,7 +1298,7 @@ a {
     &__nav {
         height: max-content;
         width: 20vw;
-        max-width: 310px;
+        max-width: 400px;
     }
 
     &__room-content-block {
@@ -1374,9 +1374,6 @@ a {
         display: flex;
         gap: 60px;
         justify-content: space-between;
-    }
-
-    &__room-info-content {
     }
 
     &__room-info-descripttion {
@@ -1459,9 +1456,6 @@ a {
         gap: 25px;
     }
 
-    &__room-info-characteristics-card {
-    }
-
     &__room-info-characteristics-card-icon {
         margin-bottom: 7px;
         height: 30px;
@@ -1475,6 +1469,89 @@ a {
         color: var(--739276);
     }
 
+}
+
+
+/* Страница "Ресторан" */
+
+.restaurant-page {
+    margin-bottom: 100px;
+
+    &__title {
+        margin-bottom: 50px;
+    }
+
+    &__wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 70px;
+        align-items: center;
+        position: relative;
+        height: 100%;
+    }
+
+    &__img-wrapper {
+        height: 100%;
+        
+    }
+
+    &__img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+
+
+    &__text-block {
+        font-family: var(--font-family);
+        font-style: italic;
+        font-weight: 500;
+        font-size: 24px;
+        line-height: 150%;
+        color: var(--739276);
+        margin-bottom: 30px;
+    }
+
+    &__text-block-green {
+        font-weight: 400;
+        color: var(--131313);
+    }
+
+    &__cards {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+    }
+
+    &__card {
+        padding: 15px 15px 10px 15px;
+        border-radius: 3px;
+        background: #e3e3e3; 
+    }
+
+    &__card-img {
+        width: 54px;
+        height: 54px;
+        margin-bottom: 5px;
+    }
+
+    &__card-title {
+        font-family: var(--font-family);
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 144%;
+        color: var(--383838);
+        margin-bottom: 5px;
+    }
+
+    &__card-text {
+        font-family: var(--font-family);
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 137%;
+        color: var(--383838);
+    }
 }
 
 
@@ -1543,10 +1620,6 @@ a {
 
         &__room-info-characteristics-card-icon {
             margin-bottom: 10px;
-        }
-
-        &__room-info-characteristics-card-text {
-            
         }
     }
 }
@@ -1680,6 +1753,18 @@ a {
 
         &__nav-item-wrapper {
             border-top: unset;
+        }
+    }
+
+
+    .restaurant-page {
+        &__wrapper {
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        &__img {
+            max-height: 500px;
         }
     }
 
@@ -1928,6 +2013,12 @@ a {
             flex-direction: column;
             text-align: center;
             gap: 15px;
+        }
+    }
+
+    .restaurant-page {
+        &__cards {
+            grid-template-columns: 1fr;
         }
     }
 }
