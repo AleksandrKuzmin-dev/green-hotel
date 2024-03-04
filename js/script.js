@@ -147,6 +147,7 @@ function setTabs(tabsElements, activeTabSelector, contentElements) {
     
 
     tabsElements.forEach((item, index) => {
+        contentElements[index].classList.add('fadeOutFromNone');
         item.addEventListener('click', () => {
             lastContent.classList.add('none');
             lastTab.classList.remove(activeTabSelector.replace(/[.]/g, ''));
@@ -235,8 +236,3 @@ function setTabRooms(tabSelector, activeTabSelector, contentSelector) {
 
 setMobileMenu('.header__mobile-burger', '.mobile-modal-menu', '.mobile-modal-menu__close');
 
-
-
-
-
-    

@@ -117,7 +117,7 @@ legend {
   font-style: normal;
 }
 /* Анимации */
-@-webkit-keyframes fadeInFromNone {
+@-webkit-keyframes fadeOutFromNone {
   0% {
     opacity: 0;
   }
@@ -125,7 +125,7 @@ legend {
     opacity: 1;
   }
 }
-@keyframes fadeInFromNone {
+@keyframes fadeOutFromNone {
   0% {
     opacity: 0;
   }
@@ -195,9 +195,9 @@ legend {
           animation: closeMobileMenu 1s ease-in-out;
 }
 
-.fadeInFromNone {
-  -webkit-animation: fadeInFromNone 1s ease-in-out;
-          animation: fadeInFromNone 1s ease-in-out;
+.fadeOutFromNone {
+  -webkit-animation: fadeOutFromNone 1s ease-in-out;
+          animation: fadeOutFromNone 1s ease-in-out;
 }
 
 :root {
@@ -206,6 +206,7 @@ legend {
   --e0dccd: #e2d6a7;
   --efefef: #efefef;
   --383838: #333;
+  --hover: #5B7E5E;
   --font-family: "TT Norms", sans-serif;
 }
 
@@ -262,6 +263,14 @@ a {
   padding: 15px 30px;
   border: 1px solid var(--739276);
   border-radius: 99px;
+}
+
+.btn-hover {
+  -webkit-transition: background-color 0.8s ease;
+  transition: background-color 0.8s ease;
+}
+.btn-hover:hover {
+  background-color: var(--hover);
 }
 
 .header {
@@ -876,11 +885,11 @@ a {
   -webkit-transition: background-color 0.8s ease;
   transition: background-color 0.8s ease;
 }
-.rooms__corpus-nav-item_active {
+:is(.rooms__corpus-nav-item_active, .rooms__corpus-nav-item:hover) {
   color: #fff;
   background-color: var(--739276);
 }
-.rooms__corpus-nav-item_active .rooms__corpus-nav-icon g rect {
+:is(.rooms__corpus-nav-item_active, .rooms__corpus-nav-item:hover) .rooms__corpus-nav-icon g rect {
   fill: #FFF;
 }
 .rooms__wrapper {
@@ -917,7 +926,10 @@ a {
   transition: all 0.8s ease;
 }
 .rooms__nav-item_active {
-  background-color: #5B7E5E;
+  background-color: var(--hover);
+}
+.rooms__nav-item:hover {
+  background-color: var(--hover);
 }
 .rooms__nav-item-wrapper {
   display: -webkit-box;
@@ -935,10 +947,10 @@ a {
 .rooms__nav-item:first-child .rooms__nav-item-wrapper {
   border-top: unset;
 }
-.rooms__nav-item_active .rooms__nav-item-wrapper {
+:is(.rooms__nav-item_active, .rooms__nav-item:hover) .rooms__nav-item-wrapper {
   border-top: unset;
 }
-.rooms__nav-item_active + .rooms__nav-item .rooms__nav-item-wrapper {
+:is(.rooms__nav-item_active, .rooms__nav-item:hover) + .rooms__nav-item .rooms__nav-item-wrapper {
   border-top: unset;
 }
 .rooms__nav-item-text-wrapper {
@@ -966,7 +978,7 @@ a {
   -webkit-transition: opacity 0.5s ease;
   transition: opacity 0.5s ease;
 }
-.rooms__nav-item_active .rooms__nav-item-arrow {
+:is(.rooms__nav-item_active, .rooms__nav-item:hover) .rooms__nav-item-arrow {
   width: unset;
   opacity: 1;
 }
@@ -1171,7 +1183,7 @@ a {
 .gallery-restaurant__nav-btn {
   padding: 13px 30px;
   border-radius: 99px;
-  background: #d3d3d3;
+  background-color: #d3d3d3;
   font-family: var(--font-family);
   font-weight: 500;
   font-size: 14px;
@@ -1183,9 +1195,11 @@ a {
   min-width: -webkit-max-content;
   min-width: -moz-max-content;
   min-width: max-content;
+  -webkit-transition: background-color 0.4s ease;
+  transition: background-color 0.4s ease;
 }
-.gallery-restaurant__nav-btn_active {
-  background: var(--739276);
+:is(.gallery-restaurant__nav-btn_active, .gallery-restaurant__nav-btn:hover) {
+  background-color: var(--739276);
   color: #fff;
 }
 .gallery-restaurant__img-cards {
@@ -1245,15 +1259,18 @@ a {
   -ms-flex-negative: 0;
       flex-shrink: 0;
 }
-.gallery-restaurant__menu-nav-item_active {
+:is(.gallery-restaurant__menu-nav-item_active, .gallery-restaurant__menu-nav-item:hover) {
   background: var(--739276);
   color: #fff;
 }
 .gallery-restaurant__menu-nav-icon g rect {
   fill: var(--383838);
 }
-.gallery-restaurant__menu-nav-item_active .gallery-restaurant__menu-nav-icon g rect {
+:is(.gallery-restaurant__menu-nav-item_active, .gallery-restaurant__menu-nav-item:hover) .gallery-restaurant__menu-nav-icon g rect {
   fill: white;
+}
+:is(.gallery-restaurant__menu-nav-item_active, .gallery-restaurant__menu-nav-item:hover) .gallery-restaurant__menu-nav-icon path {
+  stroke: white;
 }
 .gallery-restaurant__menu-section {
   width: 560px;
@@ -1435,6 +1452,7 @@ a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  width: 300px;
 }
 .guarantee__card-number {
   font-family: var(--font-family);
@@ -1612,6 +1630,9 @@ a {
   .guarantee__img {
     width: 100%;
   }
+  .guarantee__cards {
+    justify-items: center;
+  }
 }
 @media (max-width: 960px) {
   .title-h2 {
@@ -1782,6 +1803,9 @@ a {
     width: -webkit-max-content;
     width: -moz-max-content;
     width: max-content;
+  }
+  .guarantee__card {
+    width: 265px;
   }
   .guarantee__card-number {
     font-size: 60px;

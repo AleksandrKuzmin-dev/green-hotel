@@ -50,11 +50,10 @@
 
 
 /* Анимации */
-@keyframes fadeInFromNone {
+@keyframes fadeOutFromNone {
     0% { opacity: 0; }
     100% { opacity: 1; }
 }
-
 
 @keyframes zoom {
     0% { transform: scale(1.1)}
@@ -79,9 +78,10 @@
     animation: closeMobileMenu 1s ease-in-out;
 }
 
-  .fadeInFromNone {
-    animation: fadeInFromNone 1s ease-in-out;
-  }  
+
+.fadeOutFromNone {
+    animation: fadeOutFromNone 1s ease-in-out;
+}
 
 :root {
 	--131313: #131313;
@@ -89,6 +89,7 @@
 	--e0dccd: #e2d6a7;
 	--efefef: #efefef;
 	--383838: #333;
+    --hover: #5B7E5E;
     --font-family: "TT Norms", sans-serif;
 }
 
@@ -144,6 +145,14 @@ a {
     padding: 15px 30px;
     border: 1px solid var(--739276);
     border-radius: 99px;
+}
+
+.btn-hover {
+    transition: background-color .8s ease;
+
+    &:hover {
+        background-color: var(--hover);
+    }
 }
 
 
@@ -684,13 +693,14 @@ a {
 
         transition: background-color .8s ease;
 
-        &_active {
+        :is(&_active, &:hover) {
             color: #fff;
             background-color: var(--739276);
         }
+
     }
 
-    &__corpus-nav-item_active &__corpus-nav-icon g rect{
+    :is(&__corpus-nav-item_active, &__corpus-nav-item:hover) &__corpus-nav-icon g rect{
        fill: #FFF;
     }
 
@@ -720,7 +730,11 @@ a {
         transition: all .8s ease;
        
         &_active {
-            background-color: #5B7E5E;
+            background-color: var(--hover);
+        }
+
+        &:hover {
+            background-color: var(--hover);
         }
     }
 
@@ -736,11 +750,11 @@ a {
         border-top: unset;
     }
 
-    &__nav-item_active &__nav-item-wrapper {
+    :is(&__nav-item_active, &__nav-item:hover) &__nav-item-wrapper {
         border-top: unset;
     }
 
-    &__nav-item_active + &__nav-item &__nav-item-wrapper {
+    :is(&__nav-item_active, &__nav-item:hover) + &__nav-item &__nav-item-wrapper {
         border-top: unset;
     }
 
@@ -772,7 +786,7 @@ a {
         opacity: 0;
         transition: opacity .5s ease;
     }
-    &__nav-item_active &__nav-item-arrow {
+    :is(&__nav-item_active, &__nav-item:hover) &__nav-item-arrow {
         width: unset;
         opacity: 1;
     }
@@ -850,6 +864,7 @@ a {
         gap: 10px;
         align-items: center;
         justify-content: center;
+
     }
 }
 
@@ -950,7 +965,7 @@ a {
     &__nav-btn {
         padding: 13px 30px;
         border-radius: 99px;
-        background: #d3d3d3;
+        background-color: #d3d3d3;
 
         font-family: var(--font-family);
         font-weight: 500;
@@ -962,10 +977,13 @@ a {
         color: var(--383838);
         min-width: max-content;
 
-        &_active {
-            background: var(--739276);
+        transition: background-color .4s ease;
+
+        :is(&_active, &:hover) {
+            background-color: var(--739276);
             color: #fff;
         }
+
     }
 
     &__img-cards {
@@ -978,9 +996,6 @@ a {
         object-position: center;
         object-fit: contain;
         width: 100%;
-    }
-
-    &__menu {
     }
 
     &__menu-devider {
@@ -1021,7 +1036,7 @@ a {
         color: var(--383838);
         flex-shrink: 0;
 
-        &_active {
+        :is(&_active, &:hover) {
             background: var(--739276);
             color: #fff;
         }
@@ -1031,8 +1046,12 @@ a {
         fill: var(--383838);
     }
 
-    &__menu-nav-item_active &__menu-nav-icon g rect{
+    :is(&__menu-nav-item_active, &__menu-nav-item:hover) &__menu-nav-icon g rect{
         fill: white;
+    }
+
+    :is(&__menu-nav-item_active, &__menu-nav-item:hover) &__menu-nav-icon path{
+        stroke: white;
     }
 
     &__menu-section {
@@ -1068,10 +1087,6 @@ a {
         display: flex;
         justify-content: space-between;
         align-items: flex-start;
-    }
-
-    &__menu-food-item-title-wrapper {
-        
     }
 
     &__menu-food-item-name {
@@ -1218,6 +1233,7 @@ a {
         display: flex;
         gap: 15px;
         align-items: center;
+        width: 300px;
     }
 
     &__card-number {
@@ -1429,6 +1445,10 @@ a {
             width: 100%;
         }
 
+        &__cards {
+            justify-items: center;
+        }
+
     }
 
 
@@ -1619,6 +1639,10 @@ a {
         &__cards {
             grid-template-columns: 1fr;
             width: max-content;
+        }
+
+        &__card {
+            width: 265px;
         }
       
         &__card-number{
