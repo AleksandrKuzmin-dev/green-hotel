@@ -161,6 +161,12 @@ function setTabs(tabsElements, activeTabSelector, contentElements) {
     })
 }
 
+function setTabsBySelector(tabSelector, activeTabSelector, contentSelector) {
+    const tabs = document.querySelectorAll(tabSelector);
+    const content = document.querySelectorAll(contentSelector);
+    setTabs(tabs, activeTabSelector, content);
+}
+
 /* Слайдер комнаты в "Номерной фонд" + динамическое создание превью в навигации*/
 function setRoomSlider(imgElements, previewParentElement, previewSelector, previewActiveSelector){
 
