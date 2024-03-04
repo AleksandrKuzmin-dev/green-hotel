@@ -38,8 +38,59 @@ function setMobileMenu(triggerSelector, modalSelector, closeSelector){
         disabledBtn(false);
     })
 
+    document.addEventListener('keydown', (e) => {
+        if (e.key = 'Escape' && isOpen) {
+            closeModal();
+        }
+    })
+
     trigger.addEventListener('click', openModal);
     close.addEventListener('click', closeModal);
+}
+
+function setModal(triggerSelector, modalSelector, closeSelector, timerValue) {
+    const trigger = document.querySelector(triggerSelector),
+          modal = document.querySelector(modalSelector),
+          close = document.querySelector(closeSelector),
+          body = document.querySelector('body');
+    
+    let isOpen = false;
+    let timeOut = null;
+
+    const showModal = () => {
+        modal.classList.remove('none');
+        isOpen = true;
+        body.style.overflow = 'hidden';
+        timeOut = null;
+    }
+
+    const closeModal = () => {
+        modal.classList.add('none');
+        isOpen = false;
+        body.style.overflow = 'unset';
+    }
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key = 'Escape' && isOpen) {
+            closeModal();
+        }
+    });
+
+    if (trigger) {
+        trigger.addEventListener('click', () => {
+            showModal();
+        });
+    }
+
+    close.addEventListener('click', () => {
+        closeModal();
+    })
+
+    if (timerValue) {
+        timeOut = setTimeout(() => {
+            showModal();
+        }, timerValue)
+    }
 }
 
 function setFullPageSlider(bgSelector, slideSelector, imgSelector, prevBtnSelector, nextBtnSelector, activeBtnSelector, currentValueSelector, totalValueSelector) {

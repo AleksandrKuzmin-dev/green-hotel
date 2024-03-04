@@ -1451,6 +1451,21 @@
         </div>
     </footer>
 
+    <section class="modal-discount fadeOutFromNone none">
+        <div class="modal-discount__wrapper">
+            <h2 class="modal-discount__title">Скидка <span class="modal-discount__title-bold">25%</span></h2>
+            <p class="modal-discount__text"><span class="modal-discount__text-bold">Специальная скидка на бронирование номера</span><br>любой категории</p>
+            <button class="modal-discount__btn">Забронировать</button>
+
+            <button class="modal-discount__close" name="Закрыть" href="#">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8 8L24 24" stroke="#739276" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M24 8L8 24" stroke="#739276" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </div>
+    </section>
+
     <script src="./js/script.js"></script>
 
     <script>
@@ -1466,6 +1481,10 @@
 
             /* Назначаем табы на меню в блоке Ресторан */
             setTabsBySelector('.gallery-restaurant__menu-nav-item', '.gallery-restaurant__menu-nav-item_active', '.gallery-restaurant__menu-section');
+
+            /* Модальное окно со скидкой */
+            setModal(null, '.modal-discount', '.modal-discount__close', 10000);
+
         })
     </script>
 </body>
