@@ -1179,6 +1179,7 @@ a {
     }
 }
 
+
 .guarantee {
     margin-bottom: 120px;
 
@@ -1277,7 +1278,204 @@ a {
 }
 
 
+/* Страница "Номера" */
 
+.rooms-page {
+    background-image: url(../img/rooms-bg.jpg);
+    height: 692px;
+    &__header {
+        margin-bottom: 85px;
+    }
+}
+
+
+.rooms-card {
+    margin-top: -474px;   
+}
+
+.rooms-card .rooms {
+
+    &__nav {
+        height: max-content;
+        width: 20vw;
+        max-width: 310px;
+    }
+
+    &__room-content-block {
+            height: 470px;
+    }
+
+    &__room-img {
+        min-width: 100%;
+    }
+
+    &__room-info-block {
+        margin-bottom: 40px;
+        padding: 0 15px;
+        margin-top: -20px;
+        position: relative;
+        z-index: 5;
+    }
+    &__room-info {
+        padding: 25px 30px 88px 30px;
+        background: #FFFFFF;
+        box-shadow: 0px 10px 20px rgba(104, 104, 104, 0.2);
+        
+        border-radius: 25px 25px 3px 3px;
+    }
+
+    &__room-info-title-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__room-info-title {
+        font-family: var(--font-family);
+        font-weight: 500;
+        font-size: 32px;
+        color: var(--131313);
+    }
+
+    &__room-info-price-wrapper {
+        margin-bottom: 20px;
+    }
+
+    &__room-info-price-subtitle {
+        font-family: var(--font-family);
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 143%;
+        color: #666;
+    }
+
+    &__room-info-price-value {
+        font-family: var(--font-family);
+        font-weight: 500;
+        font-size: 32px;
+        color: var(--739276);
+    }
+
+    &__room-info-price {
+        font-weight: 400;
+        font-size: 18px;
+        color: #666;
+    }
+
+    &__room-info-devider-wave {
+        width: 100%;
+        background-image: url(../img/rooms__long-wave-icon.svg);
+        height: 10px;
+        background-repeat: no-repeat;
+        margin-bottom: 25px;
+    }
+
+    &__room-info-wrapper {
+        display: flex;
+        gap: 60px;
+        justify-content: space-between;
+    }
+
+    &__room-info-content {
+    }
+
+    &__room-info-descripttion {
+        font-family: var(--font-family);
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 150%;
+        color: var(--383838);
+        max-width: 525px;
+        margin-bottom: 25px;
+    }
+
+    &__room-info-content-devider-wave {
+        width: 100%;
+        background-image: url(../img/rooms__long-wave-icon.svg);
+        height: 10px;
+        background-repeat: no-repeat;
+        margin-bottom: 25px;
+    }
+
+    &__room-info-content-cards {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 25px;
+    }
+
+    &__room-info-content-card {
+        border-right: 1px solid #d9d9d9;
+    }
+
+    &__room-info-content-card:last-child {
+        border-right: unset;
+        margin-right: 0px;
+        padding-right: 0px;
+    }
+
+    &__room-info-content-card-title-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 25px;
+    }
+
+    &__room-info-content-card-title-icon {
+        width: 30px;
+        height: 30px;
+    }
+
+    &__room-info-content-card-title {
+        font-family: var(--font-family);
+        font-weight: 400;
+        font-size: 16px;
+        color: var(--739276);
+    }
+
+    &__room-info-content-list {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        padding-left: 15px;
+    }
+
+    &__room-info-content-list-item {
+        list-style-type: disc;
+        list-style-position: outside; 
+        font-family: var(--font-family);
+        font-weight: 400;
+        font-size: 14px;
+        color: var(--383838); 
+    }
+
+    &__room-info-content-list-item::marker {
+        color: var(--739276);
+    }
+
+    &__room-info-characteristics-cards {
+        max-width: 202px;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    &__room-info-characteristics-card {
+    }
+
+    &__room-info-characteristics-card-icon {
+        margin-bottom: 7px;
+        height: 30px;
+        width: 30px;
+    }
+
+    &__room-info-characteristics-card-text {
+        font-family: var(--font-family);
+        font-weight: 400;
+        font-size: 16px;
+        color: var(--739276);
+    }
+
+}
 
 
 
@@ -1319,6 +1517,8 @@ a {
     }
 }
 
+
+
 @media (max-width: 1400px) {
     .guarantee {
         &__wrapper {
@@ -1327,6 +1527,26 @@ a {
         }
         &__cards {
             gap: 30px;
+        }
+    }
+
+    .rooms-card .rooms {
+        &__room-info-wrapper {
+            flex-direction: column;
+        }
+
+        &__room-info-characteristics-cards {
+            flex-direction: row;
+            gap: 60px;
+            max-width: unset;
+        }
+
+        &__room-info-characteristics-card-icon {
+            margin-bottom: 10px;
+        }
+
+        &__room-info-characteristics-card-text {
+            
         }
     }
 }
@@ -1452,6 +1672,18 @@ a {
     }
 
 
+    .rooms-card .rooms {
+        &__nav {
+            width: unset;
+            max-width: unset;
+        }
+
+        &__nav-item-wrapper {
+            border-top: unset;
+        }
+    }
+
+
 }
 
 @media (max-width: 960px) {
@@ -1529,6 +1761,31 @@ a {
 
         &__title-button {
             padding: 10px 20px
+        }
+    }
+
+    .rooms-card .rooms {
+        &__room-info-content-cards {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        &__room-info-content-card {
+            border-right: unset;
+            margin-right: unset;
+        }
+
+        &__room-info-characteristics-cards {
+            display: grid;
+            gap: 30px;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        &__room-nav {
+            bottom: 30px;
+        }
+        
+        &__room-content-block {
+            height: 100%;
         }
     }
 }
@@ -1656,7 +1913,28 @@ a {
             min-height: 250px;
         }
     }
+
+    .rooms-card .rooms {
+        &__room-info-content-cards {
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        &__room-info-characteristics-cards {
+            grid-template-columns: 1fr;
+        }
+
+        &__room-info-title-wrapper {
+            flex-direction: column;
+            text-align: center;
+            gap: 15px;
+        }
+    }
 }
+
+
+        
+   
 
 @media(max-width: 480px) {
     .header {
@@ -1710,6 +1988,20 @@ a {
             grid-template-columns: 1fr;
             align-items: center;
         }
+    }
+
+    .rooms-card .rooms {
+        
+        &__room-info-block {
+
+            padding-left: 0;
+            padding-right: 0;
+        }
+        
+    }
+
+    .rooms-page {
+        height: 600px;
     }
 
     
