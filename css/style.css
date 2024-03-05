@@ -501,6 +501,15 @@ body {
   width: 100%;
   height: 80px;
   border-bottom: 1px solid var(--efefef);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 .mobile-modal-menu__contacts-wrapper {
   display: -webkit-box;
@@ -2437,6 +2446,10 @@ body {
         -ms-flex-align: center;
             align-items: center;
   }
+  .rooms__nav-item-name {
+    margin-bottom: 2px;
+  }
+  /* Cтраница Rooms */
   .rooms-card .rooms__room-info-block {
     padding-left: 0;
     padding-right: 0;
