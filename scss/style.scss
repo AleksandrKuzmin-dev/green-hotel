@@ -110,6 +110,23 @@ body {
     background-color: #F2F2F2;
 }
 
+body::-webkit-scrollbar, .rooms__corpus-nav::-webkit-scrollbar, .rooms__nav::-webkit-scrollbar, .gallery-restaurant__nav::-webkit-scrollbar, .gallery-restaurant__menu-nav::-webkit-scrollbar{
+    width: 4px; /* Ширина всего элемента навигации */
+    height: 4px;
+  }
+  
+  body::-webkit-scrollbar-track, .rooms__corpus-nav::-webkit-scrollbar-track, .rooms__nav::-webkit-scrollbar-track, .gallery-restaurant__nav::-webkit-scrollbar-track, .gallery-restaurant__menu-nav::-webkit-scrollbar-track  {
+    background: #fff; /* Цвет дорожки */
+  }
+  
+  body::-webkit-scrollbar-thumb, .rooms__corpus-nav::-webkit-scrollbar-thumb, .rooms__nav::-webkit-scrollbar-thumb, .gallery-restaurant__nav::-webkit-scrollbar-thumb, .gallery-restaurant__menu-nav::-webkit-scrollbar-thumb  {
+    background-color: var(--739276); /* Цвет бегунка */
+    border-radius: 20px; /* Округление бегунка */
+    border: 3px solid var(--739276); /* Оформление границ бегунка */
+  }
+
+
+
 .none {
     display: none !important;
 }
@@ -800,6 +817,7 @@ body {
         width: 25vw;
         min-width: 310px;
         flex-shrink: 0;
+        padding-bottom: 0 !important;
     }
 
     &__nav-item {

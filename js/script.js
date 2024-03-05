@@ -191,6 +191,41 @@ function setFullPageSlider(bgSelector, slideSelector, imgSelector, prevBtnSelect
     initializationSlider();
 } 
 
+function setDraggableFromOverflowAuto(scroll) {
+    let speed = 1.5; // Скорость скролла.
+    if (!scroll) return;
+
+    scroll.style.scrollBehavior = 'unset';
+    scroll.style.paddingBottom = '10px';
+    scroll.style.userSelect = 'none';
+
+    let left = 0; 
+    let drag = false;
+    let coorX = 0; 
+
+    scroll.addEventListener('mousedown', function(e) {
+        drag = true;
+        coorX = e.pageX - this.offsetLeft;
+    });
+
+    document.addEventListener('mouseup', function() {
+        drag = false;
+        left = scroll.scrollLeft;
+    });
+
+    scroll.addEventListener('mousemove', function(e) {
+        if (drag) {
+            this.scrollLeft = left - (e.pageX - this.offsetLeft - coorX)*speed;
+        }
+    });
+}
+
+function setDraggableByAttribute(attr) {
+    const elements = document.querySelectorAll(attr);
+    elements.forEach(elem => setDraggableFromOverflowAuto(elem))
+
+}
+
 /* Переключение табов */
 function setTabs(tabsElements, activeTabSelector, contentElements) {
     let lastContent = contentElements[0];
@@ -285,5 +320,12 @@ function setTabRooms(tabSelector, activeTabSelector, contentSelector) {
    
 }
 
+
+
+
+/* Назначаем мобильное меню */
+
 setMobileMenu('.header__mobile-burger', '.mobile-modal-menu', '.mobile-modal-menu__close');
 
+/* Добавляем возможность двигать мышкой элементы, которые не поместились и скрылись в скролл */
+setDraggableByAttribute('[data-draggable]');
