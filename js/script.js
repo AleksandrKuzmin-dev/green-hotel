@@ -9,7 +9,7 @@ function setMobileMenu(triggerSelector, modalSelector, closeSelector){
     const disabledBtn = (value) => {
         close.disabled = value;
         trigger.disabled = value;
-    }
+    };
 
     const openModal = () => {
         disabledBtn(true);
@@ -17,14 +17,14 @@ function setMobileMenu(triggerSelector, modalSelector, closeSelector){
         trigger.disabled = true;
         modal.classList.add('animOpenMobileMenu');
         modal.classList.remove('none');
-    }
+    };
 
     const closeModal = () => {
         disabledBtn(true);
         modal.classList.remove('animOpenMobileMenu');
         modal.classList.add('animCloseMobileMenu');
         body.style.overflow = 'unset';
-    }
+    };
 
     modal.addEventListener('animationend', () => {
         if (isOpen) {
@@ -33,16 +33,16 @@ function setMobileMenu(triggerSelector, modalSelector, closeSelector){
             isOpen = false;
         } else {
             isOpen = true;
-        }
+        };
 
         disabledBtn(false);
-    })
+    });
 
     document.addEventListener('keydown', (e) => {
         if (e.key = 'Escape' && isOpen) {
             closeModal();
-        }
-    })
+        };
+    });
 
     trigger.addEventListener('click', openModal);
     close.addEventListener('click', closeModal);
@@ -62,36 +62,36 @@ function setModal(triggerSelector, modalSelector, closeSelector, timerValue) {
         isOpen = true;
         body.style.overflow = 'hidden';
         timeOut = null;
-    }
+    };
 
     const closeModal = () => {
         modal.classList.add('none');
         isOpen = false;
         body.style.overflow = 'unset';
-    }
+    };
 
     document.addEventListener('keydown', (e) => {
         if (e.key = 'Escape' && isOpen) {
             closeModal();
-        }
+        };
     });
 
     if (trigger) {
         trigger.addEventListener('click', () => {
             showModal();
         });
-    }
+    };
 
     close.addEventListener('click', () => {
         closeModal();
-    })
+    });
 
     if (timerValue) {
         timeOut = setTimeout(() => {
             showModal();
-        }, timerValue)
-    }
-}
+        }, timerValue);
+    };
+};
 
 function setFullPageSlider(bgSelector, slideSelector, imgSelector, prevBtnSelector, nextBtnSelector, activeBtnSelector, currentValueSelector, totalValueSelector) {
     /* 
@@ -115,7 +115,7 @@ function setFullPageSlider(bgSelector, slideSelector, imgSelector, prevBtnSelect
     const addZeroToNumber = (num) => {
         if (num > 9) return num;
 
-        return `0${num}`
+        return `0${num}`;
     }
 
     const changeBg = (imgSrc) => {
@@ -124,7 +124,7 @@ function setFullPageSlider(bgSelector, slideSelector, imgSelector, prevBtnSelect
         bg[currentBg].src = imgSrc;
         bg[currentBg].classList.remove('none');
     
-    }
+    };
 
     const setActiveBtn = (slideNumber) => {
         const activeSelector = activeBtnSelector.replace(/[.]/g, '');
@@ -136,9 +136,9 @@ function setFullPageSlider(bgSelector, slideSelector, imgSelector, prevBtnSelect
             nextBtn.classList.add(activeSelector)
         } else {
             prevBtn.classList.add(activeSelector);
-            nextBtn.classList.add(activeSelector)
-        }
-    }
+            nextBtn.classList.add(activeSelector);
+        };
+    };
 
     const setSlide = (slideNumber) => {
 
@@ -161,11 +161,11 @@ function setFullPageSlider(bgSelector, slideSelector, imgSelector, prevBtnSelect
                 const imgSrc = item.querySelector(imgSelector).src;
                 item.classList.remove('none');
                 changeBg(imgSrc);
-            } 
-        })
+            };
+        });
 
         currentValue.textContent = addZeroToNumber(currentSlide + 1);
-    }
+    };
 
     const initializationSlider = () => {
         totalValue.textContent = addZeroToNumber(quantitySlides);
@@ -185,11 +185,11 @@ function setFullPageSlider(bgSelector, slideSelector, imgSelector, prevBtnSelect
 
         nextBtn.addEventListener('click', () => {
             setSlide(currentSlide + 1);     
-        })
-    }
+        });
+    };
 
     initializationSlider();
-} 
+}; 
 
 function setDraggableFromOverflowAuto(scroll) {
     let speed = 1.5; // Скорость скролла.
@@ -216,15 +216,15 @@ function setDraggableFromOverflowAuto(scroll) {
     scroll.addEventListener('mousemove', function(e) {
         if (drag) {
             this.scrollLeft = left - (e.pageX - this.offsetLeft - coorX)*speed;
-        }
+        };
     });
-}
+};
 
 function setDraggableByAttribute(attr) {
     const elements = document.querySelectorAll(attr);
-    elements.forEach(elem => setDraggableFromOverflowAuto(elem))
+    elements.forEach(elem => setDraggableFromOverflowAuto(elem));
 
-}
+};
 
 /* Переключение табов */
 function setTabs(tabsElements, activeTabSelector, contentElements) {
@@ -244,9 +244,9 @@ function setTabs(tabsElements, activeTabSelector, contentElements) {
             lastTab = tabsElements[index];
             lastContent = contentElements[index];
 
-        })
-    })
-}
+        });
+    });
+};
 
 function setTabsBySelector(tabSelector, activeTabSelector, contentSelector) {
     const tabs = document.querySelectorAll(tabSelector);
@@ -269,8 +269,8 @@ function setRoomSlider(imgElements, previewParentElement, previewSelector, previ
                 previewEl.classList.add(previewActiveSelector.replace(/[.]/g, ''));
             }
             previewParentElement.append(previewEl);
-        })
-    }
+        });
+    };
 
     createPreview();
 
@@ -283,7 +283,6 @@ function setRoomSlider(imgElements, previewParentElement, previewSelector, previ
 
         lastActivePreview.classList.remove(previewActiveSelector.replace(/[.]/g, ''))
         previewElements[numSlide].classList.add(previewActiveSelector.replace(/[.]/g, ''));
-
         imgWrapper.style.transform = `translate(-${numSlide * widthStep}px)`;
         lastActivePreview = previewElements[numSlide];
     }
@@ -291,18 +290,16 @@ function setRoomSlider(imgElements, previewParentElement, previewSelector, previ
     previewElements.forEach((item, index) => {
         item.addEventListener('click', () => {
             setNextSlide(index);
-        })
-    })
-}
+        });
+    });
+};
 
 /* Динамическое навешивание табов и слайдера для раздела "Номерной фонд" */
 function setTabRooms(tabSelector, activeTabSelector, contentSelector) {
     const tabs = document.querySelectorAll(tabSelector),
           content = document.querySelectorAll(contentSelector);
 
-
     setTabs(tabs, activeTabSelector, content);
-
 
     content.forEach((corpus) => {
         const roomTabs = corpus.querySelectorAll('.rooms__nav-item');
@@ -315,16 +312,14 @@ function setTabRooms(tabSelector, activeTabSelector, contentSelector) {
             const previewBlock = room.querySelector('.rooms__room-preview');
             
             setRoomSlider(images, previewBlock, '.rooms__room-preview-item', '.rooms__room-preview-item_active');
-        })
-    })
-   
-}
+        });
+    });
+};
 
 
 
 
 /* Назначаем мобильное меню */
-
 setMobileMenu('.header__mobile-burger', '.mobile-modal-menu', '.mobile-modal-menu__close');
 
 /* Добавляем возможность двигать мышкой элементы, которые не поместились и скрылись в скролл */
