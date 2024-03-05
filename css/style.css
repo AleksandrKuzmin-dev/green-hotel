@@ -2146,6 +2146,7 @@ body::-webkit-scrollbar-thumb, .rooms__corpus-nav::-webkit-scrollbar-thumb, .roo
   }
   .rooms__nav-item-wrapper {
     border-bottom: unset;
+    border-top: unset;
     width: -webkit-max-content;
     width: -moz-max-content;
     width: max-content;

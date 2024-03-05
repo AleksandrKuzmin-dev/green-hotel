@@ -125,8 +125,6 @@ body::-webkit-scrollbar, .rooms__corpus-nav::-webkit-scrollbar, .rooms__nav::-we
     border: 3px solid var(--739276); /* Оформление границ бегунка */
   }
 
-
-
 .none {
     display: none !important;
 }
@@ -1965,6 +1963,7 @@ body::-webkit-scrollbar, .rooms__corpus-nav::-webkit-scrollbar, .rooms__nav::-we
 
         &__nav-item-wrapper {
             border-bottom: unset;
+            border-top: unset;
             width: max-content;
             
         }
@@ -2049,6 +2048,7 @@ body::-webkit-scrollbar, .rooms__corpus-nav::-webkit-scrollbar, .rooms__nav::-we
 }
 
 @media (max-width: 960px) {
+
 
     .title-h2 {
         font-size: 42px;
