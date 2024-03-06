@@ -39,7 +39,7 @@ function setMobileMenu(triggerSelector, modalSelector, closeSelector){
     });
 
     document.addEventListener('keydown', (e) => {
-        if (e.key = 'Escape' && isOpen) {
+        if (e.key === 'Escape' && isOpen) {
             closeModal();
         };
     });
@@ -71,10 +71,16 @@ function setModal(triggerSelector, modalSelector, closeSelector, timerValue) {
     };
 
     document.addEventListener('keydown', (e) => {
-        if (e.key = 'Escape' && isOpen) {
+        if (e.key === 'Escape' && isOpen) {
             closeModal();
         };
     });
+
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            closeModal();
+        }
+    })
 
     if (trigger) {
         trigger.addEventListener('click', () => {
@@ -317,10 +323,56 @@ function setTabRooms(tabSelector, activeTabSelector, contentSelector) {
 };
 
 
+/* Добавление zoom на фотографии */
+function setZoomGallery(imgSelector) {
+    /* setModal(imgSelector, '.modal-gallery'); */
+    const triggers = document.querySelectorAll(imgSelector),
+    modal = document.querySelector('.modal-gallery'),
+    modalImg = document.querySelector('.modal-gallery__img'),
+    body = document.querySelector('body');
 
+    let isOpen = false;
+    let timeOut = null;
+
+    const showModal = () => {
+        modal.classList.remove('none');
+        isOpen = true;
+        body.style.overflow = 'hidden';
+    };
+
+    const closeModal = () => {
+        modal.classList.add('none');
+        isOpen = false;
+        body.style.overflow = 'unset';
+    };
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && isOpen) {
+            closeModal();
+        };
+    });
+
+    modal.addEventListener('click', (e) => {
+        closeModal();
+    })
+
+    triggers.forEach(trigger => {
+        trigger.addEventListener('click', () => {
+            const imgSrc = trigger.src;
+            const altImg = trigger.alt;
+
+            modalImg.src = imgSrc;
+            modalImg.alt = altImg;
+            
+            showModal();
+        });
+    })   
+}
 
 /* Назначаем мобильное меню */
 setMobileMenu('.header__mobile-burger', '.mobile-modal-menu', '.mobile-modal-menu__close');
 
 /* Добавляем возможность двигать мышкой элементы, которые не поместились и скрылись в скролл */
 setDraggableByAttribute('[data-draggable]');
+
+
